@@ -43,6 +43,10 @@ int _printf(const char *format, ...)
 				count += len_num(number);
 				print_number(number);
 			}
+			else if (*format == '%')
+			{
+				count += _putchar('%');
+			}
 			else
 			{
 				char c = va_arg(args, int);
