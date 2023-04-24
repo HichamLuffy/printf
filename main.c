@@ -8,6 +8,6 @@
 
 int main(void)
 {
-	_printf("should print a single percent siggn : %\n");
+	_printf("should print a single percent siggn : %%\n");
 	return (0);
 }
