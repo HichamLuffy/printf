@@ -4,6 +4,6 @@ int main()
 {
 	char c = 'o';
 
-	_printf("hell%c w%s%d\n", c, "world!", 100);
+	_printf("complete the setence: you %s nothing, Jon Snow.\n", "know");
 	return (0);
 }
