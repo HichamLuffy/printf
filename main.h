@@ -12,4 +12,5 @@ void print_string(char *str);
 int _putchar(char c);
 int len_num(int num);
 int _printf(const char *format, ...);
+
 #endif
