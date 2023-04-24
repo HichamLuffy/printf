@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * print_number - prints number
+ * @num: int
+ * Return: void
+ */
 void print_number(int num)
 {
         if (num < 0)
@@ -13,9 +18,14 @@ void print_number(int num)
                 print_number(num % 10);
         }
         else
-                _putchar(num + '0');
+	       	_putchar(num + '0');
 }
 
+/**
+ * len_num - length of a number
+ * @num: int
+ * Return: int
+ */
 int len_num(int num)
 {
         if (num == 0)
