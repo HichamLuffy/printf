@@ -2,8 +2,6 @@
 
 int main()
 {
-	char c = 'o';
-
-	_printf("complete the setence: you %s nothing, Jon Snow.\n", "know");
+	_printf("%c", 's');
 	return (0);
 }
