@@ -1,11 +1,11 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <strings.h>
+
 void print_number(int num);
 int _strlen(char *str);
 void print_string(char *str);
