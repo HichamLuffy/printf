@@ -47,6 +47,8 @@ int _printf(const char *format, ...)
 			{
 				count += _putchar('%');
 			}
+			else if (*format == '\0')
+				return (-1);
 			else
 			{
 				char c = va_arg(args, int);
