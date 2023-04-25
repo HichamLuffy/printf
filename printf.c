@@ -16,9 +16,9 @@ int _putchar(char c)
  */
 int len_num(int num)
 {
-    if (num == 0)
-        return (0);
-    return (1 + len_num(num / 10));
+	if (num == 0)
+		return (0);
+	return (1 + len_num(num / 10));
 }
 /**
  * _printf - prints
@@ -39,7 +39,8 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (*format == 'c') 
+
+			if (*format == 'c')
 			{
 				char c = va_arg(args, int);
 
@@ -66,15 +67,14 @@ int _printf(const char *format, ...)
 				count += len_num(num);
 				handle_number(num);
 			}
-			else if (*format == '\0')
-				return (-1);
-			else{
+			else
+			{
 				_putchar('%');
 				count++;
-				if (*format)	
+				if (*format)
 				{
-					_putchar(*format);   
-					count++;	
+					_putchar(*format);
+					count++;
 				}
 			}
 			format++;
