@@ -9,46 +9,55 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
- * len_num - prints
- * @num: string to be printed
- * Return: length of num
+ * len_num - Computes the number of digits in an integer.
+ * @num: The integer to compute the number of digits for.
+ *
+ * Return: The number of digits in @num.
  */
 int len_num(int num)
 {
-	if (num == 0)
-		return (0);
-	return (1 + len_num(num / 10));
+        int count = 0;
+
+        if (num == 0)
+                return (1);
+
+        while (num != 0)
+        {
+                num /= 10;
+                count++;
+        }
+
+        return (count);
 }
 
 /**
- * handle_number - check code
- * @num: parametre
- * Return: 1
+ * handle_number - Handles the printing of an integer.
+ * @num: The integer to print.
+ *
+ * Return: Always 1.
  */
 int handle_number(int num)
 {
-	if (num == -2147483648)
-	{
-		_putchar('-');
-		_putchar('2');
-		handle_number(147483648);
-		return (1);
-	}
-	else if (num < 0)
-	{
-		_putchar('-');
-		num = -num;
-	}
-	if (num >= 10)
-	{
-		handle_number(num / 10);
-		handle_number(num % 10);
-	}
-	else if (num < 10)
-	{
-		_putchar(num + '0');
-	}
-	return (1);
+        if (num == -2147483648)
+        {
+                _putchar('-');
+                _putchar('2');
+                handle_number(147483648);
+                return (1);
+        }
+        else if (num < 0)
+        {
+                _putchar('-');
+                num = -num;
+        }
+
+        if (num >= 10)
+        {
+                handle_number(num / 10);
+        }
+
+        _putchar(num % 10 + '0');
+        return (1);
 }
 /**
  * handle_string - check code
