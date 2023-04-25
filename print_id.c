@@ -7,16 +7,14 @@
  */
 int printf_id(const char *format, ...)
 {
-	int num, count = 0;
 	va_list args;
+	int count = 0;
+	char buf[32];
+	int num, i = 0;
 
 	va_start(args, format);
-	if (!format || !format[0])
-		return (-1);
 	while (*format)
 	{
-		if (*format == '\0')
-			return (-1);
 		if (*format == '%')
 		{
 			format++;
@@ -24,26 +22,28 @@ int printf_id(const char *format, ...)
 			{
 				num = va_arg(args, int);
 				if (num < 0)
-					count++;
-				count += len_num(num);
-				handle_number(num);
-			} else
-			{
-				_putchar('%');
-				count++;
-				if (*format)
 				{
-					_putchar(*format);
+					num = -num;
+					putchar('-');
 					count++;
 				}
+				do {
+					buf[i++] = num % 10 + '0';
+				} while (num /= 10);
+				while (--i >= 0)
+				{
+					putchar(buf[i]);
+					count++;
+				}
+			} else if (*format == '%')
+			{
+				count += putchar('%');
 			}
-			format++;
 		} else
 		{
-			_putchar(*format);
-			format++;
-			count++;
+			count += putchar(*format);
 		}
+		format++;
 	}
 	va_end(args);
 	return (count);
