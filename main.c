@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-	printf_id("test %d is %i.\n", 55, 6);
+	printf_id("%d == %i\n", 1024, 1024);
 	return (0);
 }
