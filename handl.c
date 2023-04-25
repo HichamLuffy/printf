@@ -32,6 +32,7 @@ int handle_number(int num)
 		_putchar('-');
 		_putchar('2');
 		handle_number(147483648);
+		return (1);
 	}
 	else if (num < 0)
 	{
@@ -47,7 +48,7 @@ int handle_number(int num)
 	{
 		_putchar(num + '0');
 	}
-	return (0);
+	return (1);
 }
 /**
  * handle_string - check code
