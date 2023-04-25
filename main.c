@@ -7,6 +7,8 @@
  */
 int main(void)
 {
-	_printf("%d\n", 1000);
+	unsigned int a = 42, b = 255;
+
+	_print_unsigned("Decimal: %u\nOctal: %o\nLowercase Hexadecimal: %x\nUppercase Hexadecimal: %X\n", a, b, b, b);
 	return (0);
 }
