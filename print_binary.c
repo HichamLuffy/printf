@@ -1,17 +1,5 @@
 #include "main.h"
-/**
- * binary - prints binary
- * @n: unsigned int
- * Return: void
- */
-void binary(unsigned int n)
-{
-	if (n > 1) 
-	{
-		binary(n / 2);
-	}
-	_putchar((n % 2) ? '1' : '0');
-}
+
 /**
  * print_binary - prints u int converted to binary
  * @format: cons char*
@@ -28,26 +16,36 @@ int print_binary(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			switch (*(++format))
+			format++;
+			if (*format == 'b')
 			{
-				case 'b':
-				       	{
-					      	unsigned int n = va_arg(args, unsigned int);
-				      		binary(n);	
-			      			break;
-					 }
-				default:
-					count += _putchar('%');
-					count += _putchar(*format);	
-			      		break;
+				unsigned int num = va_arg(args, unsigned int);
+				char binary[32];
+				int i = 0;
+
+				while (num > 0)
+				{
+					binary[i++] = (num % 2 == 1) ? '1' : '0';
+					num /= 2;
+				}
+				i--;
+				while (i >= 0)
+				{
+					count += _putchar(binary[i]);
+					i--;
+				}
+			} else
+			{
+				char c = va_arg(args, int);
+
+				count += _putchar(c);
 			}
 		} else
-	       	{
-    			count += _putchar(*format);
+		{
+			count += _putchar(*format);
 		}
 		format++;
 	}
 	va_end(args);
 	return (count);
-
 }
