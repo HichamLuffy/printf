@@ -5,13 +5,9 @@
  *
  * Return: Always 0
  */
-int main(void)
+int main()
 {
-	unsigned int num = 42;
+  _printf("hello %d %i", 423, 12);
 
-	print_binary("Binary representation of 42 is %b.\n", num);
-	unsigned int a = 42, b = 255;
-
-	_print_unsigned("Decimal: %u\nOctal: %o\nLowercase Hexadecimal: %x\nUppercase Hexadecimal: %X\n", a, b, b, b);
-	return (0);
+  return (0);
 }
