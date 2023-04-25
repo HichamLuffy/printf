@@ -1,6 +1,41 @@
 #include "main.h"
 
 /**
+ * handle_number - handles num
+ * @num: int
+ * Return: int
+ */
+int handle_number(int num)
+{
+	int count = 0;
+
+	if (num < 0)
+		count++;
+	count += len_num(num);
+	if (num == -2147483648)
+	{
+		_putchar('-');
+		_putchar('2');
+		handle_number(147483648);
+		else if (num < 0)
+		{
+			_putchar('-');
+			count++;
+			num = -num;
+		}
+		if (num >= 10)
+		{
+			handle_number(num / 10);
+			handle_number(num % 10);
+		}
+		else if (num < 10)
+		{
+			_putchar(num +'0');
+		}
+		return(count);
+	}
+}
+/**
  * _printf - prints
  * @format: string to be printed
  * @...: args
@@ -13,59 +48,57 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 	if (!format || !format[0])
-		return(-1);
+		return (-1);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			if (*format == 'c')
+			if (*format == 'c') 
 			{
 				char c = va_arg(args, int);
 
-				_putchar(c);
-				count++;
+				count += _putchar(c);
+
 			}
 			else if (*format == 's')
 			{
 				char *str = va_arg(args, char *);
 
-				if (!str)
-					count += 6;
-				else
-					count += _strlen(str);
-				print_string(str);
-			}
-			else if (*format == 'd' || *format == 'i')
-			{
-				int number = va_arg(args, int);
-			
-				if (number < 0)
-					count++;
-				count += len_num(number);
-				print_number(number);
+				count += handle_string(str);
 			}
 			else if (*format == '%')
 			{
-				count += _putchar('%');
-			}
-			else if (*format == '\0')
-			{
-				return (-1);
-			}
-			else
-			{
-				_putchar(*format);
+				_putchar('%');
 				count++;
 			}
+			else if (*format == 'd' || *format == 'i')
+			{
+				int num = va_arg(args, int);
+
+				if (num < 0)
+					count++;
+				count += len_num(num);
+				handle_number(num);
+			}
+			else 
+			{
+				_putchar('%');
+				count++;
+				if (*format)
+				{
+					_putchar(*format);   
+					count++;
+				}
+			}
+			format++;
 		}
 		else
 		{
 			_putchar(*format);
+			format++;
 			count++;
 		}
-		format++;
 	}
-	va_end(args);
 	return (count);
 }
