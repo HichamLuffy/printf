@@ -63,11 +63,11 @@ int _printf(const char *format, ...)
 	return (count);
 }
 /**
- *  *printf_id - prints
- *   *@format: string to be printed
- *    *@...: args
- *     *Return: length of format
- *      */
+ *printf_id - prints
+ *@format: string to be printed
+ *@...: args
+ *Return: length of format
+ */
 int printf_id(const char *format, ...)
 {
 	va_list args;
@@ -82,21 +82,30 @@ int printf_id(const char *format, ...)
 			format++;
 			if (*format == 'd' || *format == 'i')
 			{
+				num = va_arg(args, int);
 				if (num < 0)
 					count++;
 				count += len_num(num);
 				handle_number(num);
-			} else if (*format == '%')
+			} else
 			{
-				num = va_arg(args, int);
-				count += putchar('%');
+				_putchar('%');
+				count++;
+				if (*format)
+				{
+					_putchar(*format);
+					count++;
+				}
 			}
-		} else
-		{
-			count += putchar(*format);
+			format++;
+			}
+			else
+			{
+				_putchar(*format);
+					format++;
+				count++;
+			}
 		}
-		format++;
-	}
 	va_end(args);
 	return (count);
 }
