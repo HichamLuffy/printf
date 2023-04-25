@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-	print_binary("test %d is %i.\n", 23, 1000);
+	_printf("test %c is %s.\n", 'a', "hard");
 	return (0);
 }
