@@ -14,49 +14,7 @@ void print_num(int num)
 	count += len_num(num);
 	handle_number(num);
 }
-/**
- * percent - prints percent
- *
- * Return: void
- */
-void percent(void)
-{
-	int count = 0;
 
-	_putchar('%');
-	count++;
-}
-
-/**
- * do_something - does something
- * @format: char *
- * Return: void
- */
-void do_something(const char *format)
-{
-	int count = 0;
-
-	_putchar('%');
-	count++;
-	if (*format)
-	{
-		_putchar(*format);
-		count++;
-	}
-}
-/**
- * do_this - do
- * @format: char *
- * Return: void
- */
-void do_this(const char *format)
-{
-	int count = 0;
-
-	_putchar(*format);
-	format++;
-	count++;
-}
 /**
  * _printf - prints
  * @format: string to be printed
@@ -87,22 +45,31 @@ int _printf(const char *format, ...)
 				str = va_arg(args, char *);
 				count += handle_string(str);
 			} else if (*format == '%')
-				percent();
+				count += _putchar('%');
 			else if (*format == 'd' || *format == 'i')
 			{
 				num = va_arg(args, int);
-				print_num(num);
+				if (num < 0)
+					count++;
+				count += len_num(num);
+				handle_number(num);
 			}
 			else if (*format == '\0')
 				return (-1);
 			else
 			{
-				do_something(format);
+				count += _putchar('%');
+				if (*format)
+				{
+					count += _putchar(*format);
+				}
 			}
 			format++;
 		} else
 		{
-			do_this(format);
+			_putchar(*format);
+			format++;
+			count++;
 		}
 	}
 	return (count);
