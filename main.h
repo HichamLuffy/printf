@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <strings.h>
 int _print_unsigned(const char *format, ...);
+int print_address(va_list l, flags_t *f);
 void print_num(int num);
 int handle_string(char *str);
 int handle_number(int num);
