@@ -1,24 +1,61 @@
 #include "main.h"
+
 /**
- * _putchar - check
- * @c: parametre
- * Return: length of format
+ * print_num - prints num
+ * @num: int
+ * Return: void
  */
-int _putchar(char c)
+void print_num(int num)
 {
-	return (write(1, &c, 1));
+	int count = 0;
+
+	if (num < 0)
+		count++;
+	count += len_num(num);
+	handle_number(num);
+}
+/**
+ * percent - prints percent
+ *
+ * Return: void
+ */
+void percent(void)
+{
+	int count = 0;
+
+	_putchar('%');
+	count++;
 }
 
 /**
- * num - prints
- * @num: string to be printed
- * Return: length of num
+ * do_something - does something
+ * @format: char *
+ * Return: void
  */
-int len_num(int num)
+void do_something(const char *format)
 {
-	if (num == 0)
-		return (0);
-	return (1 + len_num(num / 10));
+	int count = 0;
+
+	_putchar('%');
+	count++;
+	if (*format)
+	{
+		_putchar(*format);
+		count++;
+	}
+}
+/**
+ * do_this - do
+ * @format: char *
+ * Return: void
+ */
+void do_this(const char *format)
+{
+	int count = 0;
+
+	_putchar(*format);
+	format++;
+	count++;
 }
 /**
  * _printf - prints
@@ -28,8 +65,9 @@ int len_num(int num)
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int count = 0, num;
 	va_list args;
+	char c, *str;
 
 	va_start(args, format);
 	if (!format || !format[0])
@@ -39,53 +77,32 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-
 			if (*format == 'c')
 			{
-				char c = va_arg(args, int);
-
+				c = va_arg(args, int);
 				count += _putchar(c);
-
 			}
 			else if (*format == 's')
 			{
-				char *str = va_arg(args, char *);
-
+				str = va_arg(args, char *);
 				count += handle_string(str);
-			}
-			else if (*format == '%')
-			{
-				_putchar('%');
-				count++;
-			}
+			} else if (*format == '%')
+				percent();
 			else if (*format == 'd' || *format == 'i')
 			{
-				int num = va_arg(args, int);
-
-				if (num < 0)
-					count++;
-				count += len_num(num);
-				handle_number(num);
+				num = va_arg(args, int);
+				print_num(num);
 			}
 			else if (*format == '\0')
 				return (-1);
 			else
 			{
-				_putchar('%');
-				count++;
-				if (*format)
-				{
-					_putchar(*format);
-					count++;
-				}
+				do_something(format);
 			}
 			format++;
-		}
-		else
+		} else
 		{
-			_putchar(*format);
-			format++;
-			count++;
+			do_this(format);
 		}
 	}
 	return (count);
