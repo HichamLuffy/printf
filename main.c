@@ -7,6 +7,8 @@
  */
 int main(void)
 {
-	_printf("%d\n", 1000);
+	unsigned int num = 42;
+
+	print_binary("Binary representation of 42 is %b.\n", num);
 	return (0);
 }
