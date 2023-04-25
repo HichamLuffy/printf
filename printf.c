@@ -1,6 +1,21 @@
 #include "main.h"
 
 /**
+ * print_num - prints num
+ * @num: int
+ * Return: void
+ */
+void print_num(int num)
+{
+	int count = 0;
+
+	if (num < 0)
+		count++;
+	count += len_num(num);
+	handle_number(num);
+}
+
+/**
  * _printf - prints
  * @format: string to be printed
  * @...: args
@@ -8,7 +23,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int count = 0, num;
 	va_list args;
 	char c, *str;
 
@@ -17,8 +32,6 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (*format)
 	{
-		if (*format == '\0')
-			return (-1);
 		if (*format == '%')
 		{
 			format++;
@@ -33,11 +46,23 @@ int _printf(const char *format, ...)
 				count += handle_string(str);
 			} else if (*format == '%')
 				count += _putchar('%');
+			else if (*format == 'd' || *format == 'i')
+			{
+				num = va_arg(args, int);
+				if (num < 0)
+					count++;
+				count += len_num(num);
+				handle_number(num);
+			}
+			else if (*format == '\0')
+				return (-1);
 			else
 			{
 				count += _putchar('%');
 				if (*format)
+				{
 					count += _putchar(*format);
+				}
 			}
 			format++;
 		} else
