@@ -72,8 +72,7 @@ int printf_id(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
-	char buf[32];
-	int num, i = 0;
+	int num;
 
 	va_start(args, format);
 	while (*format)
@@ -83,23 +82,13 @@ int printf_id(const char *format, ...)
 			format++;
 			if (*format == 'd' || *format == 'i')
 			{
-				num = va_arg(args, int);
 				if (num < 0)
-				{
-					num = -num;
-					putchar('-');
 					count++;
-				}
-				do {
-					buf[i++] = num % 10 + '0';
-				} while (num /= 10);
-				while (--i >= 0)
-				{
-					putchar(buf[i]);
-					count++;
-				}
+				count += len_num(num);
+				handle_number(num);
 			} else if (*format == '%')
 			{
+				num = va_arg(args, int);
 				count += putchar('%');
 			}
 		} else

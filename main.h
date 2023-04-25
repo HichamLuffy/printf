@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <strings.h>
-
 int printf_id(const char *format, ...);
 int _print_unsigned(const char *format, ...);
 void print_num(int num);
