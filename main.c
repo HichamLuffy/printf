@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-	_printf("test %c is %s.\n", 'a', "hard");
+	printf_id("test %d is %i.\n", 55, 6);
 	return (0);
 }
