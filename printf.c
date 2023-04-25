@@ -67,6 +67,8 @@ int _printf(const char *format, ...)
 				count += len_num(num);
 				handle_number(num);
 			}
+			else if (*format == '\0')
+				return (-1);
 			else
 			{
 				_putchar('%');
