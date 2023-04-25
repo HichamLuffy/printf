@@ -27,19 +27,11 @@ int len_num(int num)
  */
 int handle_number(int num)
 {
-	if ( num == 2147483647)
-	{
-		_putchar('+');
-                _putchar('2');
-                handle_number(147483647);
-                return (1);
-	}
 	if (num == -2147483648)
 	{
 		_putchar('-');
 		_putchar('2');
 		handle_number(147483648);
-		return (1);
 	}
 	else if (num < 0)
 	{
@@ -55,7 +47,7 @@ int handle_number(int num)
 	{
 		_putchar(num + '0');
 	}
-	return (1);
+	return (0);
 }
 /**
  * handle_string - check code
