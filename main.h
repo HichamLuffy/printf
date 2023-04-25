@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <strings.h>
 
+int print_num(const char *format, ...);
 int handle_string(char *str);
 int handle_number(int num);
 void print_number(int num);
