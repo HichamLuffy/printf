@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-	_printf("%d == %i\n", 1024, 1024);
+	_printf("The minimum value of an int is: %d\n", INT_MIN);
 	return (0);
 }

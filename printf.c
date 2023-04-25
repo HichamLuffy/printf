@@ -53,14 +53,14 @@ int _printf(const char *format, ...)
 				handle_number(num);
 			} else if (*format == '%')
 				count += _putchar('%');
-			else
+			else 
 			{
 				count += _putchar('%');
 				if (*format)
 					count += _putchar(*format);
 			}
 			format++;
-		} else
+		} else 
 		{
 			count += _putchar(*format);
 			format++;
