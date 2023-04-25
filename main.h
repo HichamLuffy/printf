@@ -6,8 +6,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <strings.h>
-#define INT_MAX +2147483647
-#define INT_MIN -2147483648
+#include <limits.h>
 int printf_id(const char *format, ...);
 int _print_unsigned(const char *format, ...);
 void print_num(int num);
