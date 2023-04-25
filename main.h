@@ -1,11 +1,13 @@
 #ifndef MAIN_H
 #define MAIN_H
-#include <limits.h>
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <strings.h>
+#define INT_MAX +2147483647
+#define INT_MIN -2147483648
 int printf_id(const char *format, ...);
 int _print_unsigned(const char *format, ...);
 void print_num(int num);
