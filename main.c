@@ -7,8 +7,6 @@
  */
 int main(void)
 {
-	unsigned int num = 42;
-
-	print_binary("Binary representation of 42 is %b.\n", num);
+	print_binary("test %d is %i.\n", 23, 1000);
 	return (0);
 }
