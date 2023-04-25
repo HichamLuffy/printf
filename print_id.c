@@ -1,5 +1,16 @@
 #include "main.h"
 /**
+ *len_num - prints
+ *@num: string to be printed
+ *Return: length of num
+ */
+int len_num(int num)
+{
+	    if (num == 0)
+		            return (0);
+	        return (1 + len_num(num / 10));
+}
+/**
  *printf_id - prints
  *@format: string to be printed
  *@...: args
