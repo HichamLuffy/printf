@@ -16,18 +16,16 @@ int _putchar(char c)
  */
 int len_num(int num)
 {
-        int count = 0;
+	int count = 0;
 
-        if (num == 0)
-                return (1);
-
-        while (num != 0)
-        {
-                num /= 10;
-                count++;
-        }
-
-        return (count);
+	if (num == 0)
+		return (1);
+	while (num != 0)
+	{
+		num /= 10;
+		count++;
+	}
+	return (count);
 }
 
 /**
@@ -35,38 +33,36 @@ int len_num(int num)
  * @num: The integer to print.
  *
  * Return: Always 1.
- */
+*/
 int handle_number(int num)
 {
-        if (num == -2147483648)
-        {
-                _putchar('-');
-                _putchar('2');
-                handle_number(147483648);
-                return (1);
-        }
-        else if (num < 0)
-        {
-                _putchar('-');
-                num = -num;
-        }
-
-        if (num >= 10)
-        {
-                handle_number(num / 10);
-        }
-
-        _putchar(num % 10 + '0');
-        return (1);
+	if (num == -2147483648)
+	{
+		_putchar('-');
+		_putchar('2');
+		handle_number(147483648);
+		return (1);
+	}
+	else if (num < 0)
+	{
+		_putchar('-');
+		num = -num;
+	}
+	if (num >= 10)
+	{
+		handle_number(num / 10);
+	}
+	_putchar(num % 10 + '0');
+	return (1);
 }
+
 /**
  * handle_string - check code
  * @str: parametre
  * Return: i
- */
+*/
 int handle_string(char *str)
-{
-	int i = 0;
+{	int i = 0;
 
 	if (str == NULL)
 	{
