@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <strings.h>
 #include <limits.h>
-int printf_id(const char *format, ...);
+int id_printf(const char *format, ...);
 int _print_unsigned(const char *format, ...);
 void print_num(int num);
 int handle_string(char *str);
@@ -18,6 +18,7 @@ void print_string(char *str);
 int _putchar(char c);
 int len_num(int num);
 int _printf(const char *format, ...);
-int print_binary(const char *format, ...);
+int print_binary(va_list types, char buffer[],
+			int flags, int width, int precision, int size);
 
 #endif

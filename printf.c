@@ -1,26 +1,5 @@
 #include "main.h"
 /**
- * _putchar - check
- * @c: parametre
- * Return: length of format
- */
-int _putchar(char c)
-{
-    return (write(1, &c, 1));
-}
-
-/**
- * num - prints
- * @num: string to be printed
- * Return: length of num
- */
-int len_num(int num)
-{
-    if (num == 0)
-        return (0);
-    return (1 + len_num(num / 10));
-}
-/**
  * _printf - prints
  * @format: string to be printed
  * @...: args
