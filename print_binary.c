@@ -1,51 +1,43 @@
 #include "main.h"
-
 /**
- * print_binary - prints u int converted to binary
- * @format: cons char*
- * @...: args
- * Return: int
+ * print_binary - Prints an unsigned number
+ * @types: Lista of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: get width.
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Numbers of char printed.
  */
-int print_binary(const char *format, ...)
+int print_binary(va_list types, char buffer[],
+			int flags, int width, int precision, int size)
 {
-	int count = 0;
-	va_list args;
+	unsigned int n, m, i, sum;
+	unsigned int a[32];
+	int count;
 
-	va_start(args, format);
-	while (*format)
+	UNUSED(buffer);
+	UNUSED(flags);
+	UNUSED(width);
+	UNUSED(precision);
+	UNUSED(size);
+
+	n = va_arg(types, unsigned int);
+	m = 2147483648; /* (2 ^ 31) */
+	a[0] = n / m;
+	for (i = 1; i < 32; i++)
 	{
-		if (*format == '%')
-		{
-			format++;
-			if (*format == 'b')
-			{
-				unsigned int num = va_arg(args, unsigned int);
-				char binary[32];
-				int i = 0;
-
-				while (num > 0)
-				{
-					binary[i++] = (num % 2 == 1) ? '1' : '0';
-					num /= 2;
-				}
-				i--;
-				while (i >= 0)
-				{
-					count += _putchar(binary[i]);
-					i--;
-				}
-			} else
-			{
-				char c = va_arg(args, int);
-
-				count += _putchar(c);
-			}
-		} else
-		{
-			count += _putchar(*format);
-		}
-		format++;
+		m /= 2;
+		a[i] = (n / m) % 2;
 	}
-	va_end(args);
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
+	{
+		sum += a[i];
+		if (sum || i == 31)
+		{
+			char z = '0' + a[i];
+
+			write(1, &z, 1);
+		}
 	return (count);
 }
