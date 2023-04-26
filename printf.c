@@ -23,7 +23,7 @@ void print_num(int num)
 int _printf(const char *format, ...)
 {
 	char c, *str;
-	int num, count = 0;
+	int count = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -44,23 +44,16 @@ int _printf(const char *format, ...)
 			{
 				str = va_arg(args, char *);
 				count += handle_string(str);
-			} else if (*format == 'd' || *format == 'i')
-			{
-				num = va_arg(args, int);
-				if (num < 0)
-					count++;
-				count += len_num(num);
-				handle_number(num);
 			} else if (*format == '%')
 				count += _putchar('%');
-			else 
+			else
 			{
 				count += _putchar('%');
 				if (*format)
 					count += _putchar(*format);
 			}
 			format++;
-		} else 
+		} else
 		{
 			count += _putchar(*format);
 			format++;
