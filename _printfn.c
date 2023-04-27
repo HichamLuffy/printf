@@ -22,7 +22,7 @@ int _printfn(const char *format, ...)
 			{
 				int num = va_arg(args, int);
 
-				handle_number(num);
+				/* handle_number(num); */
 				count += len_num(num);
 			} else
 	       		{
