@@ -7,11 +7,11 @@
  */
 int _printfn(const char *format, ...)
 {
-    	int count = 0;
+	int count = 0;
 	va_list args;
-    	va_start(args, format);
-	
-    	while (*format != '\0')
+
+	va_start(args, format);
+	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
@@ -25,11 +25,10 @@ int _printfn(const char *format, ...)
 				/* handle_number(num); */
 				count += len_num(num);
 			} else
-	       		{
-	
-		    		_putchar(*format);
+			{
+				_putchar(*format);
 				count++;
-	    			format++;
+				format++;
 			}
 			format++;
 		} else
@@ -38,6 +37,6 @@ int _printfn(const char *format, ...)
 			format++;
 		}
 	}
-    	va_end(args);
-	return count;
+	va_end(args);
+	return (count);
 }

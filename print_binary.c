@@ -1,5 +1,6 @@
 #include "main.h"
-/** print_binary - Prints an unsigned number
+/**
+ * print_binary - Prints an unsigned number
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
