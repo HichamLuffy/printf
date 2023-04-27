@@ -8,6 +8,7 @@
 #include <strings.h>
 #include <limits.h>
 
+void custom_printf(const char* fmt, ...);
 int _print_unsigned(const char *format, ...);
 void print_num(int num);
 int handle_string(char *str);

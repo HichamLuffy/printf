@@ -1,10 +1,10 @@
 #include "main.h"
+
 /**
  * main - Entry point
  *
- * Return: int
+ * Return: Always 0
  */
-
 int main(void)
 {
     int a = 0, b = 0;
@@ -62,5 +62,4 @@ int main(void)
 	printf("Expected length:    %i\n", a);
 	printf("Current length:     %i\n", b);
 	return (0);
-
 }
