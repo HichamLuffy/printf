@@ -13,24 +13,31 @@ int _printfn(const char *format, ...)
 	
     	while (*format != '\0')
 	{
-		if (*format == '%' && (*(format+1) == 'd' || *(format+1) == 'i'))
+		if (*format == '%')
 		{
-			int num = va_arg(args, int);
+			format++;
+			if (*format == '\0')
+				return (-1);
+			if (*format == 'd' || *format == 'i')
+			{
+				int num = va_arg(args, int);
 
-		    	printf("%d", num);
-	    		count++;
-	    		format += 2; // Advance the format string past the conversion specifier
-
+				handle_number(num);
+				count += len_num(num);
+			} else
+	       		{
+	
+		    		_putchar(*format);
+				count++;
+	    			format++;
+			}
+			format++;
 		} else
-	       	{
-
-	    		putchar(*format);
-			count++;
-	    		format++;
+		{
+			count += _putchar(*format);
+			format++;
 		}
 	}
     	va_end(args);
 	return count;
 }
-
-

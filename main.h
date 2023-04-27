@@ -8,10 +8,7 @@
 #include <strings.h>
 #include <limits.h>
 
-<<<<<<< HEAD
 int _print_unsigned(const char *format, ...);
-=======
->>>>>>> 0579d1d7722534adf08c8bc42657cb90dd209a01
 void print_num(int num);
 int handle_string(char *str);
 int handle_number(int num);
@@ -21,10 +18,7 @@ void print_string(char *str);
 int _putchar(char c);
 int len_num(int num);
 int _printf(const char *format, ...);
-<<<<<<< HEAD
-=======
 int _printfn(const char *format, ...);
 int print_binary(const char *format, ...);
->>>>>>> 0579d1d7722534adf08c8bc42657cb90dd209a01
 
 #endif
