@@ -1,40 +1,49 @@
 #include "main.h"
+#include <stdarg.h>
 /**
- * _printfn - prints
+ * _printf - prints
  * @format: string to be printed
  * @...: args
  * Return: length of format
  */
-int _printfn(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int count = 0;
 	va_list args;
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
-	while (*format != '\0')
+	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
 			if (*format == '\0')
 				return (-1);
-			if (*format == 'd' || *format == 'i')
+			if (*format == 'c')
 			{
-				int num = va_arg(args, int);
-
-				handle_number(num);
-				count += len_num(num);
-			} else
+				count = printc(args, count);
+			} else if (*format == 's')
+				count = _prints(args, count);
+			else if (*format == '%')
+				count += _putchar('%');
+			else if (*format == 'd' || *format == 'i')
+				count = _printid(args, count);
+			else if (*format == 'b')
+				count = print_binary(args, count);
+			else
 			{
-				_putchar(*format);
-				count++;
+				count += _putchar('%');
+				if (*format)
+					count += _putchar(*format);
 			}
 			format++;
 		} else
 		{
-			count += _putchar(*format);
+			format += _putchar(*format);
+			count++;
 		}
-		format++;
 	}
 	va_end(args);
 	return (count);
