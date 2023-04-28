@@ -18,7 +18,6 @@ void print_string(char *str);
 int _putchar(char c);
 int len_num(int num);
 int _printf(const char *format, ...);
-int _printfn(const char *format, ...);
 int print_binary(const char *format, ...);
 
 #endif

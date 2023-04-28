@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * _printfn - prints
+ * _printf - prints
  * @format: string to be printed
  * @...: args
  * Return: length of format
  */
-int _printfn(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int count = 0;
 	va_list args;
