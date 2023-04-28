@@ -20,15 +20,13 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-				va_end(args);
 				return (-1);
 			if (*format == 'd' || *format == 'i')
 			{
 				int num = va_arg(args, int);
 
-				handle_number(num);
 				count += len_num(num);
-				count++;
+				handle_number(num);
 			} else if (*format == 'c')
 			{
 				char c = (char) va_arg(args, int);
