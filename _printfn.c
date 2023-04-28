@@ -20,6 +20,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
+				va_end(args);
 				return (-1);
 			if (*format == 'd' || *format == 'i')
 			{
@@ -32,14 +33,12 @@ int _printf(const char *format, ...)
 			{
 				char c = (char) va_arg(args, int);
 
-				_putchar(c);
-				count++;
+				count += _putchar(c);
 			} else if (*format == 's')
 			{
 				char *str = va_arg(args, char*);
 
 				handle_string(str);
-				count += len_string(str);
 			} else
 			{
 				_putchar(*format);
