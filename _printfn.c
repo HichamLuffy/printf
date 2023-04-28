@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdarg.h>
 /**
  * _printf - prints
  * @format: string to be printed
@@ -10,6 +11,8 @@ int _printf(const char *format, ...)
 	int count = 0;
 	va_list args;
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
 	while (*format != '\0')
 	{
@@ -24,11 +27,23 @@ int _printf(const char *format, ...)
 
 				handle_number(num);
 				count += len_num(num);
+				count++;
+			} else if (*format == 'c')
+			{
+				char c = (char) va_arg(args, int);
+
+				_putchar(c);
+				count++;
+			} else if (*format == 's')
+			{
+				char *str = va_arg(args, char*);
+
+				handle_string(str);
+				count += len_string(str);
 			} else
 			{
 				_putchar(*format);
 				count++;
-				format++;
 			}
 			format++;
 		} else

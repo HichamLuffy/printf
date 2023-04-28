@@ -1,4 +1,18 @@
 #include "main.h"
+#include <string.h>
+/**
+ * len_string - check code
+ * @str: parametre
+ * Return str
+ */
+int len_string(const char *str)
+{
+	if (str == NULL)
+	{
+		return 0;
+	}
+	return strlen(str);
+}
 /**
  * _putchar - check
  * @c: parametre

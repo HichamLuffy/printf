@@ -19,5 +19,5 @@ int _putchar(char c);
 int len_num(int num);
 int _printf(const char *format, ...);
 int print_binary(const char *format, ...);
-
+int len_string(const char *str);
 #endif
