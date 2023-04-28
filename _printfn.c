@@ -28,14 +28,13 @@ int _printfn(const char *format, ...)
 			{
 				_putchar(*format);
 				count++;
-				format++;
 			}
 			format++;
 		} else
 		{
 			count += _putchar(*format);
-			format++;
 		}
+		format++;
 	}
 	va_end(args);
 	return (count);
