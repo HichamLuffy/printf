@@ -76,3 +76,16 @@ int handle_string(char *str)
 	}
 	return (i);
 }
+/**
+ * handle_binary - check code
+ * @num: parametre
+ * Return: count
+*/
+int handle_binary(unsigned int num)
+{
+        int count = 0;
+        if (num / 2)
+                count += handle_binary(num / 2);
+        count += _putchar((num % 2) + '0');
+        return count;
+}

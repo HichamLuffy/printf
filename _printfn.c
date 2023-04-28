@@ -8,7 +8,6 @@
  */
 int _printf(const char *format, ...)
 {
-	char c;
 	int count = 0;
 	va_list args;
 
@@ -24,14 +23,15 @@ int _printf(const char *format, ...)
 				return (-1);
 			if (*format == 'c')
 			{
-				c = va_arg(args, int);
-				count += _putchar(c);
+				count = printc(args, count);
 			} else if (*format == 's')
 				count = _prints(args, count);
 			else if (*format == '%')
 				count += _putchar('%');
 			else if (*format == 'd' || *format == 'i')
 				count = _printid(args, count);
+			else if (*format == 'b')
+				count = print_binary(args, count);
 			else
 			{
 				count += _putchar('%');
