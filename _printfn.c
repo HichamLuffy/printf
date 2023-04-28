@@ -1,6 +1,40 @@
 #include "main.h"
 #include <stdarg.h>
 /**
+ * _printid - prints
+ * @format: string to be printed
+ * @args: args
+ * @count: parametre
+ *
+ *Return: 1 count
+ */
+int _printid(va_list args, int count, const char *format)
+{
+	int num = va_arg(args, int);
+
+	if (num < 0)
+		count++;
+	count += len_num(num);
+	handle_number(num);
+	return (count);
+}
+/**
+ *_prints - check your code
+ *@format: parametre
+ *@args: arg
+ *@count: parametre
+ *
+ *Return: 1 count
+ */
+int _prints(va_list args, int count, const char *format)
+{
+	char *str;
+
+	str = va_arg(args, char *);
+	count += handle_string(str);
+	return (count);
+}
+/**
  * _printf - prints
  * @format: string to be printed
  * @...: args
@@ -8,7 +42,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	char c, *str;
+	int num, count = 0;
 	va_list args;
 
 	if (format == NULL)
@@ -23,45 +58,24 @@ int _printf(const char *format, ...)
 				return (-1);
 			if (*format == 'c')
 			{
-				char c = va_arg(args, int);
-
+				c = va_arg(args, int);
 				count += _putchar(c);
-			}
-			else if (*format == 's')
-			{
-				char *str = va_arg(args, char *);
-
-				count += handle_string(str);
-			} else if (*format == '%')
-			{
-				_putchar('%');
-				count++;
-			}
+			} else if (*format == 's')
+				count = _prints(args, count, format);
+			else if (*format == '%')
+				count += _putchar('%');
 			else if (*format == 'd' || *format == 'i')
-			{
-				int num = va_arg(args, int);
-
-				if (num < 0)
-					count++;
-				count += len_num(num);
-				handle_number(num);
-			}
+				count = _printid(args, count, format);
 			else
 			{
-				_putchar('%');
-				count++;
+				count += _putchar('%');
 				if (*format)
-				{
-					_putchar(*format);
-					count++;
-				}
+					count += _putchar(*format);
 			}
 			format++;
-		}
-		else
+		} else
 		{
-			_putchar(*format);
-			format++;
+			format += _putchar(*format);
 			count++;
 		}
 	}
