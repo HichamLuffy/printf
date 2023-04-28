@@ -22,4 +22,3 @@ int _printfn(const char *format, ...);
 int print_binary(const char *format, ...);
 
 #endif
-
