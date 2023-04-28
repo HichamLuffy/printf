@@ -1,13 +1,12 @@
 #include "main.h"
 /**
  * _printid - prints
- * @format: string to be printed
  * @args: args
  * @count: parametre
  *
  *Return: 1 count
  */
-int _printid(va_list args, int count, const char *format)
+int _printid(va_list args, int count)
 {
         int num = va_arg(args, int);
 
@@ -19,13 +18,12 @@ int _printid(va_list args, int count, const char *format)
 }
 /**
  *_prints - check your code
- *@format: parametre
  *@args: arg
  *@count: parametre
  *
  *Return: 1 count
  */
-int _prints(va_list args, int count, const char *format)
+int _prints(va_list args, int count)
 {
         char *str;
 

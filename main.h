@@ -8,8 +8,8 @@
 #include <strings.h>
 #include <limits.h>
 
-int _printid(va_list args, int count, const char *format);
-int _prints(va_list args, int count, const char *format);
+int _printid(va_list args, int count);
+int _prints(va_list args, int count);
 int _print_unsigned(const char *format, ...);
 void print_num(int num);
 int handle_string(char *str);

@@ -8,8 +8,8 @@
  */
 int _printf(const char *format, ...)
 {
-	char c, *str;
-	int num, count = 0;
+	char c;
+	int count = 0;
 	va_list args;
 
 	if (format == NULL)
@@ -27,11 +27,11 @@ int _printf(const char *format, ...)
 				c = va_arg(args, int);
 				count += _putchar(c);
 			} else if (*format == 's')
-				count = _prints(args, count, format);
+				count = _prints(args, count);
 			else if (*format == '%')
 				count += _putchar('%');
 			else if (*format == 'd' || *format == 'i')
-				count = _printid(args, count, format);
+				count = _printid(args, count);
 			else
 			{
 				count += _putchar('%');
