@@ -9,36 +9,60 @@
  */
 int main(void)
 {
-    	int len;
-	int len2;
-    	unsigned int ui;
-	void *addr;
+        int a = 0, b = 0;
 
-    	len = _printfn("Let's try to printf a simple sentence.\n");
-	len2 = printf("Let's try to printf a simple sentence.\n");
-    ui = (unsigned int)INT_MAX + 1024;
-    addr = (void *)0x7ffe637541f0;
-    _printfn("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len2, len2);
-    _printfn("Negative:[%d]\n", -762534);
-    printf("Negative:[%d]\n", -762534);
-    _printfn("Unsigned:[%u]\n", ui);
-    printf("Unsigned:[%u]\n", ui);
-    _printfn("Unsigned octal:[%o]\n", ui);
-    printf("Unsigned octal:[%o]\n", ui);
-    _printfn("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    _printfn("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    _printfn("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    _printfn("Address:[%p]\n", addr);
-    printf("Address:[%p]\n", addr);
-    len = _printfn("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
-    _printfn("Len:[%d]\n", len);
-    printf("Len:[%d]\n", len2);
-    /* _printfn("Unknown:[%r]\n"); */
-    /* printf("Unknown:[%r]\n"); */
-    return (0);
+        /* ========================= */
+        /*                      %d CASES                 */
+        /* ========================= */
+        printf("======================\n");
+        printf("****** d CASES ******\n");
+        printf("======================\n");
+        a = printf("Expected output:    %d\n", 1134001);
+        b = _printfn("Current output:     %d\n", 1134001);
+        printf("Expected length:    %d\n", a);
+        printf("Current length:     %d\n", b);
+        a = printf("Expected output:    %d\n", -4567);
+        b = _printfn("Current output:     %d\n", -4567);
+        printf("Expected length:    %d\n", a);
+        printf("Current length:     %d\n", b);
+        a = printf("Expected output:    %d\n", 0);
+        b = _printfn("Current output:     %d\n", 0);
+        printf("Expected length:    %d\n", a);
+        printf("Current length:     %d\n", b);
+        a = printf("Expected output:    %d\n", INT_MAX);
+        b = _printfn("Current output:     %d\n", INT_MAX);
+        printf("Expected length:    %d\n", a);
+        printf("Current length:     %d\n", b);
+        a = printf("Expected output:    %d\n", INT_MIN);
+        b = _printfn("Current output:     %d\n", INT_MIN);
+        printf("Expected length:    %d\n", a);
+        printf("Current length:     %d\n", b);
+
+        /* ========================= */
+        /*                      %i CASES                 */
+        /* ========================= */
+        printf("======================\n");
+        printf("****** i CASES ******\n");
+        printf("======================\n");
+        a = printf("Expected output:    %i\n", 237482);
+        b = _printfn("Current output:     %i\n", 237482);
+        printf("Expected length:    %i\n", a);
+        printf("Current length:     %i\n", b);
+        a = printf("Expected output:    %i\n", -328472);
+        b = _printfn("Current output:     %i\n", -328472);
+        printf("Expected length:    %i\n", a);
+        printf("Current length:     %i\n", b);
+        a = printf("Expected output:    %i\n", 0);
+        b = _printfn("Current output:     %i\n", 0);
+        printf("Expected length:    %i\n", a);
+        printf("Current length:     %i\n", b);
+        a = printf("Expected output:    %i\n", INT_MAX);
+        b = _printfn("Current output:     %i\n", INT_MAX);
+        printf("Expected length:    %i\n", a);
+        printf("Current length:     %i\n", b);
+        a = printf("Expected output:    %i\n", INT_MIN);
+        b = _printfn("Current output:     %i\n", INT_MIN);
+        printf("Expected length:    %i\n", a);
+        printf("Current length:     %i\n", b);
+        return (0);
 }
