@@ -8,13 +8,13 @@
  */
 int _printid(va_list args, int count)
 {
-        int num = va_arg(args, int);
+	int num = va_arg(args, int);
 
-        if (num < 0)
-                count++;
-        count += len_num(num);
-        handle_number(num);
-        return (count);
+	if (num < 0)
+		count++;
+	count += len_num(num);
+	handle_number(num);
+	return (count);
 }
 /**
  *_prints - check your code
@@ -25,9 +25,9 @@ int _printid(va_list args, int count)
  */
 int _prints(va_list args, int count)
 {
-        char *str;
+	char *str;
 
-        str = va_arg(args, char *);
-        count += handle_string(str);
-        return (count);
+	str = va_arg(args, char *);
+	count += handle_string(str);
+	return (count);
 }
