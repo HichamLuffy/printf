@@ -47,7 +47,7 @@ int print_binary(va_list args, int count)
 	return (count);
 }
 /**
- *_printc - check your code
+ *printc - check your code
  *@args: arg
  *@count: parametre
  *
