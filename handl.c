@@ -83,9 +83,10 @@ int handle_string(char *str)
 */
 int handle_binary(unsigned int num)
 {
-        int count = 0;
-        if (num / 2)
-                count += handle_binary(num / 2);
-        count += _putchar((num % 2) + '0');
-        return count;
+	int count = 0;
+
+	if (num / 2)
+		count += handle_binary(num / 2);
+	count += _putchar((num % 2) + '0');
+	return (count);
 }
