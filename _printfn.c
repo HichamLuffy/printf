@@ -22,9 +22,8 @@ int _printf(const char *format, ...)
 			if (*format == '\0')
 				return (-1);
 			if (*format == 'c')
-			{
 				count = printc(args, count);
-			} else if (*format == 's')
+			else if (*format == 's')
 				count = _prints(args, count);
 			else if (*format == '%')
 				count += _putchar('%');
@@ -32,6 +31,14 @@ int _printf(const char *format, ...)
 				count = _printid(args, count);
 			else if (*format == 'b')
 				count = print_binary(args, count);
+			else if (*format == 'u')
+				count = for_u(args, count);
+			else if (*format == 'o')
+				count = for_o(args, count);
+			else if (*format == 'x')
+				count = for_x(args, count);
+			else if (*format == 'X')
+				count = for_X(args, count);
 			else
 			{
 				count += _putchar('%');

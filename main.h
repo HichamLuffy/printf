@@ -23,4 +23,8 @@ int _putchar(char c);
 int len_num(int num);
 int _printf(const char *format, ...);
 int len_string(const char *str);
+int for_u(va_list args, int count);
+int for_o(va_list args, int count);
+int for_x(va_list args, int count);
+int for_X(va_list args, int count);
 #endif
